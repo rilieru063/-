@@ -1,7 +1,9 @@
 #include "BootScene.h"
+#include "dontDes.h"
 
 BootScene::BootScene()
 {
+	new dontDes();
 }
 
 BootScene::~BootScene()
