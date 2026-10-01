@@ -122,43 +122,27 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-	DrawString(0, 0, "TITLE SCENE", GetColor(25, 5, 215), 0);
-	DrawString(200, 400, "Push [P]Key To Play", GetColor(175, 55, 105));
-	int nowsize = GetFontSize();
-	SetFontSize(100);
-	if (ime == 0) {
-		DrawString(Screen::WIDTH / 2 - 60, Screen::HEIGHT / 2, "TIMEOVER", GetColor(255, 255, 255));
-		if (point >= 50) {
-			DrawString(Screen::WIDTH / 2 - 50, Screen::HEIGHT / 2 + 20, "Great!", GetColor(255, 255, 255));
-		}
-		else if (point >= 30) {
-			DrawString(Screen::WIDTH / 2 - 50, Screen::HEIGHT / 2 + 20, "Nice!", GetColor(255, 255, 255));
-		}
-		else {
-			DrawString(Screen::WIDTH / 2 - 70, Screen::HEIGHT / 2 + 20, "Try harder!", GetColor(255, 255, 255));
+	if (Screen::DEVELOPER_MODE == TRUE) {
+		DrawString(0, 0, "TITLE SCENE", GetColor(25, 5, 215), 0);
+		DrawString(200, 400, "Push [P]Key To Play", GetColor(255, 255, 255));
+		if (CheckHitKey(KEY_INPUT_I)) {
+			DrawFormatString(0, 100, GetColor(255, 255, 255), "x=%4f y=%4f", ad, ws);
+			DrawFormatString(0, 120, GetColor(255, 255, 255), "count=%d", count_k);
 		}
 	}
-	SetFontSize(nowsize);
-	//	DrawGraph(0, 0, image, 1);
 
 	DrawRectGraph(ad, ws, CHR_SIZE * pat, CHR_SIZE * pat_y, CHR_SIZE, CHR_SIZE, image_player, 1);
-
 	DrawRectGraph(coin_x, coin_y, CHR_SIZE * 1, CHR_SIZE * 0, CHR_SIZE, CHR_SIZE, image_coin, 1);
 	DrawRectGraph(en_x, en_y, PARTS_SIZE * 5, PARTS_SIZE * 0, PARTS_SIZE, PARTS_SIZE, image_en, 1);
 
-	if (CheckHitKey(KEY_INPUT_I)) {
-		DrawFormatString(0, 100, GetColor(255, 255, 255), "x=%4f y=%4f", ad, ws);
-		DrawFormatString(0, 120, GetColor(255, 255, 255), "count=%d", count_k);
-	}
-
-	DrawFormatString(1100, 0, GetColor(50, 250, 50), "POINT %4d", point);
+	DrawExtendFormatString(1100, 0, 2, 2, GetColor(50, 250, 50), "POINT %4d", point);
 	if (dispCount > 0) {
 		DrawFormatString(disp_x, disp_y, GetColor(255, 255, 55), "コインゲット！");
 	}
 	if (dispen > 0) {
 		DrawFormatString(den_x, den_y, GetColor(255, 0, 0), "痛っ！");
 	}
-	DrawFormatString(900, 0, GetColor(50, 250, 50), "TIME: %4d", ime / 60);
+	DrawExtendFormatString(900, 0, 2, 2, GetColor(50, 250, 50), "TIME: %4d", ime / 60);
 }
 
 void PlayScene::GoUp(float spd)

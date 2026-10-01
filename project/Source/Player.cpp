@@ -84,7 +84,8 @@ void Player::Update()
 
 void Player::Draw()
 {
-	DrawFormatString(0, 100, GetColor(255, 255, 255), "speed %4f",sped);
-	DrawRectGraph(pos_x, pos_y, CHR_SIZE * patz, CHR_SIZE * pat_yz, CHR_SIZE, CHR_SIZE, image, 1);
+	if (Screen::DEVELOPER_MODE == TRUE) {
+		DrawFormatString(0, 100, GetColor(255, 255, 255), "speed %4f", sped);
+	}
+	DrawRectGraph(pos_x, pos_y, CHR_SIZE* patz, CHR_SIZE* pat_yz, CHR_SIZE, CHR_SIZE, image, 1);
 }
-

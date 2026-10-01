@@ -16,6 +16,7 @@ public:
 	void GoLight(float spd);
 	void GoDown(float spd);
 	void GoRight(float spd);
+	int point = 0; //ポイント
 private:
 	int image_player; //キャラ画像
 	int image_coin; //アイテム画像
@@ -37,7 +38,6 @@ private:
 	const int STOP = 0;
 	const int WALK = 4;
 	const int PARTS_SIZE = 40; // parts.pngのサイズ
-	int point = 0; //ポイント
 	float en_x = 400; //敵のx座標
 	float en_y = 200; //敵のy座標
 	float ksk = 0;
@@ -47,5 +47,5 @@ private:
 	int dispen = 0;
 	int den_x;
 	int den_y;
-	int ime = 100 * 60; //残り時間
+	int ime = 10 * 60; //残り時間
 };
