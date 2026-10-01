@@ -47,5 +47,5 @@ private:
 	int dispen = 0;
 	int den_x;
 	int den_y;
-	int ime = 10 * 60; //c‚èŠÔ
+	int ime = 100 * 60; //c‚èŠÔ
 };
