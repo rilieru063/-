@@ -16,7 +16,7 @@ public:
 	void GoLight(float spd);
 	void GoDown(float spd);
 	void GoRight(float spd);
-	int point = 0; //ポイント
+	
 private:
 	int image_player; //キャラ画像
 	int image_coin; //アイテム画像

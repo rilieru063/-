@@ -1,6 +1,6 @@
 #include "GameClear.h"
 #include "Screen.h"
-#include "PlayScene.h"
+#include "dontDes.h"
 
 GameClear::GameClear()
 {
@@ -19,11 +19,13 @@ void GameClear::Update()
 
 void GameClear::Draw()
 {
-	PlayScene* playscene = FindGameObject<PlayScene>();
-	if (playscene->point >= 50) {
+	DrawString(Screen::WIDTH / 2-100, Screen::HEIGHT / 2, "Push [SPACE]Key To TITLE", GetColor(255, 255, 255));
+	dontDes* dontdes = FindGameObject<dontDes>();
+	int Point = dontdes->point;
+	if (Point >= 50) {
 		DrawString(Screen::WIDTH / 2 - 50, Screen::HEIGHT / 2 + 20, "Great!", GetColor(255, 255, 255));
 	}
-	else if (playscene->point >= 30) {
+	else if (Point >= 30) {
 		DrawString(Screen::WIDTH / 2 - 50, Screen::HEIGHT / 2 + 20, "Nice!", GetColor(255, 255, 255));
 	}
 	else {
